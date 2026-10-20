@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Use Cases for AI ELI5 | Aptala Anlatır Gibi 60 Ders</title>
+  <meta name="description" content="MAANG mülakatları ve AI çağı için Simon Martinelli temelli grafikli, şemalı, Java 25 kodlu, çift dilli (TR/EN) Use Case & Spec-Driven Development başucu rehberi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-ambient"></div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="brand-section">
+      <div class="brand-logo">📐</div>
+      <div>
+        <div class="brand-title">Writing Use Cases for AI ELI5</div>
+        <div class="brand-subtitle">Aptala Anlatır Gibi • 60 Ders • 10 Bölüm • AIUP & Java 25</div>
+      </div>
+    </div>
+
+    <!-- Live Search -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Use Case, kural veya kavram ara (Örn: Inversion, 3 Readers, Zone 3, Blocklist, Slices, Brownfield)...">
+    </div>
+
+    <!-- Actions & Language Switcher -->
+    <div class="nav-actions">
+      <div class="lang-selector">
+        <button class="lang-btn active" data-lang="split" title="Türkçe ve İngilizce Yan Yana">🌐 İkisi</button>
+        <button class="lang-btn" data-lang="tr" title="Sadece Türkçe">🇹🇷 TR</button>
+        <button class="lang-btn" data-lang="en" title="Only English">🇬🇧 EN</button>
+      </div>
+
+      <button id="btnOpenPdfModal" class="btn-primary" title="Tüm PDF'leri İncele ve İndir">
+        📥 PDF İndir (60 + Kitap)
+      </button>
+    </div>
+  </nav>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    <!-- Sidebar: Modules & Lessons -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Müfredat / Curriculum</span>
+        <span class="progress-pill" id="lessonCounterBadge">Ders 1 / 60</span>
+      </div>
+      <ul class="module-list" id="moduleAccordion">
+        <!-- Rendered dynamically by app.js -->
+      </ul>
+    </aside>
+
+    <!-- Main View: Active Lesson -->
+    <main class="main-view" id="mainContent">
+      <!-- Active Lesson Content Rendered Here -->
+    </main>
+  </div>
+
+  <!-- PDF Library Modal -->
+  <div class="modal-overlay" id="pdfModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: white;">📚 Yayınlanmış PDF Kütüphanesi</h2>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">60 tekil ders, 10 bölüm paketi ve 3 MB master mega-kitabı doğrudan indirin.</p>
+        </div>
+        <button id="btnClosePdfModal" class="btn-secondary" style="padding: 4px 10px; font-size: 1.1rem;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="pdf-item master-book-highlight">
+          <div>
+            <div style="font-weight: 800; font-size: 1.1rem; color: white;">📖 BÜYÜK MASTER KİTAP (TÜM 60 DERS TEK PDF)</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">60 Ders • Mimari ASCII Şemalar • Java 25 Kodları • Çift Dilli (TR & EN) • Typst Yayın Kalitesi</div>
+          </div>
+          <a href="../output/book/Writing_Use_Cases_for_AI_ELI5.pdf" target="_blank" class="btn-primary" style="padding: 0.65rem 1.3rem;">
+            ⬇️ Ana Kitabı Aç (3.0 MB)
+          </a>
+        </div>
+
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.05em;">
+          📦 10 Bölüm Paketleri (Module Bundles)
+        </h3>
+        <div class="pdf-download-list" id="modalModulePdfList">
+          <!-- Filled dynamically -->
+        </div>
+
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.75rem; letter-spacing: 0.05em;">
+          📄 60 Tekil Ders PDF'leri (Individual Lessons)
+        </h3>
+        <div class="pdf-download-list-grid" id="modalIndividualPdfList">
+          <!-- Filled dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Data and Application Logic -->
+  <script src="data/lessons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
