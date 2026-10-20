@@ -55,9 +55,42 @@
 
     setupEventListeners();
     buildPdfModalContent();
+    initTheme();
 
     // Check hash for direct link (e.g. #lesson-25)
     handleHashNavigation();
+  }
+
+  function initTheme() {
+    const savedTheme = localStorage.getItem('usecases_theme') || 'light';
+    applyTheme(savedTheme);
+
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('theme-dark');
+        const newTheme = isDark ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('usecases_theme', newTheme);
+      });
+    }
+  }
+
+  function applyTheme(theme) {
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (theme === 'dark') {
+      document.body.classList.add('theme-dark');
+      if (themeToggleBtn) {
+        themeToggleBtn.querySelector('.theme-icon').textContent = '☀️';
+        themeToggleBtn.querySelector('.theme-text').textContent = 'Açık';
+      }
+    } else {
+      document.body.classList.remove('theme-dark');
+      if (themeToggleBtn) {
+        themeToggleBtn.querySelector('.theme-icon').textContent = '🌙';
+        themeToggleBtn.querySelector('.theme-text').textContent = 'Koyu';
+      }
+    }
   }
 
   function setupEventListeners() {
